@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loogix_trading/presentation/navigation/app_router.dart';
+import 'package:loogix_trading/presentation/features/auth/auth_bloc.dart';
+import 'package:loogix_trading/presentation/features/auth/auth_event.dart';
 
 class AppShell extends StatefulWidget {
   const AppShell({super.key});
@@ -20,6 +23,18 @@ class _AppShellState extends State<AppShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Loogix Trading'),
+        actions: [
+          IconButton(
+            tooltip: 'Logout',
+            onPressed: () {
+              context.read<AuthBloc>().add(const AuthLogoutRequested());
+            },
+            icon: const Icon(Icons.logout),
+          ),
+        ],
+      ),
       body: Navigator(
         onGenerateRoute: AppRouter.onGenerateRoute,
         initialRoute: AppRouter.routeWatchlist,
