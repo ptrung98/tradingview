@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/presentation/routes/app_router.dart';
+import 'package:flutter_application_1/presentation/navigation/app_router.dart';
 
 class AppShell extends StatefulWidget {
   const AppShell({super.key});

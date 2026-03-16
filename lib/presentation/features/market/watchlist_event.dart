@@ -10,4 +10,3 @@ abstract class WatchlistEvent extends Equatable {
 class WatchlistStarted extends WatchlistEvent {
   const WatchlistStarted();
 }
-

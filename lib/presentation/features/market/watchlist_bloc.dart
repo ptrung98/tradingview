@@ -21,4 +21,3 @@ class WatchlistBloc extends Bloc<WatchlistEvent, WatchlistState> {
     });
   }
 }
-

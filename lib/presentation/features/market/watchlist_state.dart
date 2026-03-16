@@ -32,4 +32,3 @@ class WatchlistError extends WatchlistState {
   @override
   List<Object?> get props => [message];
 }
-

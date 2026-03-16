@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_application_1/presentation/market/watchlist_bloc.dart';
+import 'package:flutter_application_1/presentation/features/market/watchlist_bloc.dart';
 
 class WatchlistScreen extends StatelessWidget {
   const WatchlistScreen({super.key});
