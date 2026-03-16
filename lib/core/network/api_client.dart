@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_application_1/core/config/app_config.dart';
+import 'package:loogix_trading/core/config/app_config.dart';
 
 class ApiClient {
   final Dio _dio;

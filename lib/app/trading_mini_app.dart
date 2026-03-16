@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/app/trading_app_init_options.dart';
-import 'package:flutter_application_1/core/branding/brand_theme_provider.dart';
-import 'package:flutter_application_1/core/theme/app_theme.dart';
-import 'package:flutter_application_1/presentation/routes/app_router.dart';
-import 'package:flutter_application_1/presentation/shell/app_shell.dart';
+import 'package:loogix_trading/app/trading_app_init_options.dart';
+import 'package:loogix_trading/core/branding/brand_theme_provider.dart';
+import 'package:loogix_trading/core/theme/app_theme.dart';
+import 'package:loogix_trading/presentation/navigation/app_router.dart';
+import 'package:loogix_trading/presentation/shell/app_shell.dart';
 
 Widget createTradingApp(TradingAppInitOptions options) {
   final theme = AppTheme.fromBrand(options.brand);
@@ -25,4 +25,3 @@ Widget createTradingApp(TradingAppInitOptions options) {
     home: content,
   );
 }
-

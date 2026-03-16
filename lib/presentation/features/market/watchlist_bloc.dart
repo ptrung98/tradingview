@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_application_1/domain/entities/market_symbol.dart';
-import 'package:flutter_application_1/domain/usecases/get_watchlist_usecase.dart';
+import 'package:loogix_trading/domain/entities/market_symbol.dart';
+import 'package:loogix_trading/domain/usecases/get_watchlist_usecase.dart';
 
 part 'watchlist_event.dart';
 part 'watchlist_state.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/branding/brand_config.dart';
+import 'package:loogix_trading/core/branding/brand_config.dart';
 
 class BrandThemeProvider extends InheritedWidget {
   final BrandConfig brand;

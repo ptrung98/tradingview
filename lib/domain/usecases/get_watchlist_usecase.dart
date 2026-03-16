@@ -1,5 +1,5 @@
-import 'package:flutter_application_1/domain/entities/market_symbol.dart';
-import 'package:flutter_application_1/domain/repositories/market_repository.dart';
+import 'package:loogix_trading/domain/entities/market_symbol.dart';
+import 'package:loogix_trading/domain/repositories/market_repository.dart';
 
 class GetWatchlistUseCase {
   final MarketRepository repository;

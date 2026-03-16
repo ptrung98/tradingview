@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/presentation/features/auth/login_screen.dart';
-import 'package:flutter_application_1/presentation/features/market/watchlist_screen.dart';
-import 'package:flutter_application_1/presentation/features/portfolio/portfolio_screen.dart';
-import 'package:flutter_application_1/presentation/features/trade/place_order_screen.dart';
+import 'package:loogix_trading/presentation/features/auth/login_screen.dart';
+import 'package:loogix_trading/presentation/features/market/watchlist_screen.dart';
+import 'package:loogix_trading/presentation/features/portfolio/portfolio_screen.dart';
+import 'package:loogix_trading/presentation/features/trade/place_order_screen.dart';
 
 class AppRouter {
   static const String routeLogin = '/auth/login';

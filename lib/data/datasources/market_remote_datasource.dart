@@ -1,5 +1,5 @@
-import 'package:flutter_application_1/core/network/api_client.dart';
-import 'package:flutter_application_1/data/models/market_symbol_model.dart';
+import 'package:loogix_trading/core/network/api_client.dart';
+import 'package:loogix_trading/data/models/market_symbol_model.dart';
 
 abstract class MarketRemoteDataSource {
   Future<List<MarketSymbolModel>> getWatchlistSymbols();
