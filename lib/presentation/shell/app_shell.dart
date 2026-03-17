@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:loogix_trading/presentation/navigation/app_router.dart';
+import 'package:loogix_trading/presentation/features/market/watchlist_screen.dart';
+import 'package:loogix_trading/presentation/features/portfolio/portfolio_screen.dart';
+import 'package:loogix_trading/presentation/features/trade/place_order_screen.dart';
 import 'package:loogix_trading/presentation/features/auth/auth_bloc.dart';
 import 'package:loogix_trading/presentation/features/auth/auth_event.dart';
 
@@ -13,6 +15,12 @@ class AppShell extends StatefulWidget {
 
 class _AppShellState extends State<AppShell> {
   int _currentIndex = 0;
+
+  final List<Widget> _pages = [
+    const WatchlistScreen(),
+    const PlaceOrderScreen(),
+    const PortfolioScreen(),
+  ];
 
   void _onTap(int index) {
     setState(() {
@@ -35,10 +43,7 @@ class _AppShellState extends State<AppShell> {
           ),
         ],
       ),
-      body: Navigator(
-        onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: AppRouter.routeWatchlist,
-      ),
+      body: IndexedStack(index: _currentIndex, children: _pages),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onTap,
@@ -47,10 +52,7 @@ class _AppShellState extends State<AppShell> {
             icon: Icon(Icons.show_chart),
             label: 'Market',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.swap_vert),
-            label: 'Trade',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.swap_vert), label: 'Trade'),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_balance_wallet),
             label: 'Portfolio',
@@ -60,4 +62,3 @@ class _AppShellState extends State<AppShell> {
     );
   }
 }
-

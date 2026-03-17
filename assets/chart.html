@@ -1,93 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <title>Candlestick Chart - Fullscreen</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      background-color: #000000;
-      overflow: hidden;
-      font-family: sans-serif;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Candlestick Chart</title>
+    <style>
+      html, body {
+        margin: 0; padding: 0;
+        height: 100%; width: 100%;
+        background-color: #000000;
+        overflow: hidden;
+      }
+      #chart {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
 
-    #chart {
-      width: 100vw;
-      height: 100vh;
-    }
-  </style>
-</head>
-<body>
-  <div id="chart"></div>
+    <script src="lightweight-charts.standalone.production.js"></script>
+    <script>
+      const chartElement = document.getElementById("chart");
 
-  <!-- CDN Lightweight Charts mới nhất -->
-  <script src="https://unpkg.com/lightweight-charts@latest/dist/lightweight-charts.standalone.production.js"></script>
-  <script>
-    const chartElement = document.getElementById('chart');
-
-    const chart = LightweightCharts.createChart(chartElement, {
-      layout: {
-        background: { type: 'solid', color: '#000000' },
-        textColor: '#d1d4dc',
-      },
-      grid: {
-        vertLines: {
-          color: '#1b1f2a',
+      // Khởi tạo Chart
+      const chart = LightweightCharts.createChart(chartElement, {
+        layout: {
+          background: { type: "solid", color: "#000000" },
+          textColor: "#d1d4dc",
         },
-        horzLines: {
-          color: '#1b1f2a',
+        grid: {
+          vertLines: { color: "#1b1f2a" },
+          horzLines: { color: "#1b1f2a" },
         },
-      },
-      rightPriceScale: {
-        borderColor: '#4c525e',
-      },
-      timeScale: {
-        borderColor: '#4c525e',
-      },
-      crosshair: {
-        mode: LightweightCharts.CrosshairMode.Normal,
-      },
-      width: chartElement.clientWidth,
-      height: chartElement.clientHeight,
-    });
-
-    const candleSeries = chart.addCandlestickSeries({
-      upColor: '#26a69a',
-      downColor: '#ef5350',
-      borderUpColor: '#26a69a',
-      borderDownColor: '#ef5350',
-      wickUpColor: '#26a69a',
-      wickDownColor: '#ef5350',
-    });
-
-    // Dữ liệu mẫu (có thể thay bằng dữ liệu thật)
-    candleSeries.setData([
-      { time: '2024-10-01', open: 100, high: 110, low: 95,  close: 108 },
-      { time: '2024-10-02', open: 108, high: 115, low: 105, close: 112 },
-      { time: '2024-10-03', open: 112, high: 118, low: 110, close: 115 },
-      { time: '2024-10-04', open: 115, high: 120, low: 113, close: 117 },
-      { time: '2024-10-07', open: 117, high: 122, low: 116, close: 119 },
-      { time: '2024-10-08', open: 119, high: 123, low: 118, close: 120 },
-      { time: '2024-10-09', open: 120, high: 125, low: 119, close: 121 },
-      { time: '2024-10-10', open: 121, high: 127, low: 120, close: 126 },
-      { time: '2024-10-11', open: 126, high: 130, low: 124, close: 128 },
-      { time: '2024-10-14', open: 128, high: 132, low: 127, close: 131 },
-      { time: '2024-10-15', open: 131, high: 135, low: 129, close: 130 },
-      { time: '2024-10-16', open: 130, high: 133, low: 128, close: 129 },
-      { time: '2024-10-17', open: 129, high: 131, low: 125, close: 126 },
-      { time: '2024-10-18', open: 126, high: 129, low: 123, close: 124 },
-    ]);
-
-    // Tự động resize khi đổi kích thước cửa sổ
-    window.addEventListener('resize', () => {
-      chart.applyOptions({
         width: chartElement.clientWidth,
         height: chartElement.clientHeight,
+        timeScale: {
+            timeVisible: true,
+            secondsVisible: false,
+        },
       });
-    });
-  </script>
-</body>
+
+      // KHAI BÁO SERIES (Dùng đúng cú pháp v5.x)
+      const candlestickSeries = chart.addSeries(
+        LightweightCharts.CandlestickSeries,
+        {
+          upColor: "#26a69a",
+          downColor: "#ef5350",
+          borderVisible: false,
+          wickUpColor: "#26a69a",
+          wickDownColor: "#ef5350",
+        },
+      );
+
+      // DÙNG ĐÚNG TÊN BIẾN: candlestickSeries
+      const data = [
+        { time: "2024-10-01", open: 100, high: 110, low: 95, close: 108 },
+        { time: "2024-10-02", open: 108, high: 115, low: 105, close: 112 },
+        { time: "2024-10-03", open: 112, high: 118, low: 110, close: 115 },
+        { time: "2024-10-04", open: 115, high: 120, low: 113, close: 117 },
+        { time: "2024-10-07", open: 117, high: 122, low: 116, close: 119 },
+        { time: "2024-10-08", open: 119, high: 123, low: 118, close: 120 },
+        { time: "2024-10-09", open: 120, high: 125, low: 119, close: 121 },
+        { time: "2024-10-10", open: 121, high: 127, low: 120, close: 126 },
+        { time: "2024-10-11", open: 126, high: 130, low: 124, close: 128 },
+        { time: "2024-10-14", open: 128, high: 132, low: 127, close: 131 },
+        { time: "2024-10-15", open: 131, high: 135, low: 129, close: 130 },
+      ];
+
+      candlestickSeries.setData(data);
+
+      // Fit nội dung vào màn hình
+      chart.timeScale().fitContent();
+
+      // Resize observer (Tốt hơn window resize cho mobile)
+      new ResizeObserver(entries => {
+        if (entries.length === 0 || !entries[0].contentRect) return;
+        const { width, height } = entries[0].contentRect;
+        chart.applyOptions({ width, height });
+      }).observe(chartElement);
+    </script>
+  </body>
 </html>

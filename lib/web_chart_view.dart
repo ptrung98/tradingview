@@ -22,11 +22,9 @@ class _ChartWebViewPageState extends State<ChartWebViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: WebViewWidget(
-          controller: _controller,
-        ),
+    return SafeArea(
+      child: WebViewWidget(
+        controller: _controller,
       ),
     );
   }
