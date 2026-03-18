@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loogix_trading/domain/entities/order.dart';
-import 'package:loogix_trading/web_chart_view.dart';
+import 'package:loogix_trading/presentation/features/trade/web_chart_view.dart';
 
 class PlaceOrderScreen extends StatelessWidget {
   const PlaceOrderScreen({super.key});
